@@ -1,15 +1,15 @@
 import { Component, HostListener } from '@angular/core';
 import { AppConfigService } from './app-config.service';
-import { AutoLogoutService } from './app/core/services/auto-logout.service';
+/* import { AutoLogoutService } from 'src/app/core/services/auto-logout.service'; */
 import { Subscription } from 'rxjs';
 import { Event as NavigationEvent, Router, NavigationStart } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { LogoutService } from './app/core/services/logout.service';
-import { AuditService } from './app/core/services/audit.service';
-import { DataStorageService } from './app/core/services/data-storage.service';
+/* import { LogoutService } from 'src/app/core/services/logout.service';
+import { AuditService } from 'src/app/core/services/audit.service';
+import { DataStorageService } from 'src/app/core/services/data-storage.service'; */
 import { MatKeyboardService } from 'ngx7-material-keyboard';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import defaultJson from "./assets/i18n/default.json";
+/* import defaultJson from "src/assets/i18n/default.json"; */
 
 import {
   MomentDateAdapter,
@@ -50,12 +50,8 @@ export class AppComponent {
 
   constructor(
     private appConfigService: AppConfigService,
-    private autoLogout: AutoLogoutService,
     private router: Router,
-    private logoutService: LogoutService,
-    private auditService: AuditService,
     private keyboardService: MatKeyboardService,
-    private dataStorageService: DataStorageService,
     private dateAdapter: DateAdapter<Date>,
   ) {
     this.currentRoute = "";
