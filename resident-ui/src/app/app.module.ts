@@ -25,7 +25,8 @@ const appInitialization = (appConfig: AppConfigService) => {
 @NgModule({
   declarations: [
     AppComponent,
-    DndDirective
+    DndDirective,
+    SharedModule
   ],
   imports: [
     BrowserModule,
@@ -41,6 +42,9 @@ const appInitialization = (appConfig: AppConfigService) => {
     CoreModule,
     MatKeyboardModule,
     UserIdleModule.forRoot({})
+  ],
+  exports: [ 
+    SharedModule 
   ],
   providers: [
     {
