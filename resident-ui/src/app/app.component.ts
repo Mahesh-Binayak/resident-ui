@@ -193,11 +193,11 @@ export class AppComponent {
     };
   }
 
-  @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(event: KeyboardEvent) {
+  /* @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(event: KeyboardEvent) {
     if (this.keyboardService.isOpened) {
       this.keyboardService.dismiss();
     }
-  }
+  } */
 
   @HostListener('mouseover')
   @HostListener('document:mousemove', ['$event'])
