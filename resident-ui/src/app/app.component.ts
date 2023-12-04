@@ -133,12 +133,12 @@ export class AppComponent {
 
   ngOnInit() {
     localStorage.setItem("selectedfontsize", "14");
-    this.dateAdapter.setLocale(defaultJson.keyboardMapping[this.primaryLangCode]);
+    /* this.dateAdapter.setLocale(defaultJson.keyboardMapping[this.primaryLangCode]); */
     this.router.routeReuseStrategy.shouldReuseRoute = function(){
       return false;
     };
 
-    this.dataStorageService.isAuthenticated().subscribe((response) => {
+    /* this.dataStorageService.isAuthenticated().subscribe((response) => {
       if(response){
         if(response["response"]){
           if (window.location.href.includes('uinservices')) {
@@ -157,7 +157,7 @@ export class AppComponent {
       }else{
         this.router.navigate(['dashboard']);
       }
-    });
+    }); */
     if(window.location.href.includes('error=invalid_transaction')){
       this.router.navigate(['error']);
     }
@@ -165,8 +165,8 @@ export class AppComponent {
     if(!localStorage.getItem("langCode")){
       localStorage.setItem("langCode", "eng");
     }
-    this.subscriptions.push(this.autoLogout.currentMessageAutoLogout.subscribe(() => {}));
-    this.autoLogout.changeMessage({ timerFired: false });
+    /* this.subscriptions.push(this.autoLogout.currentMessageAutoLogout.subscribe(() => {}));
+    this.autoLogout.changeMessage({ timerFired: false }); */
     this.routerType();
   }
 
@@ -205,7 +205,7 @@ export class AppComponent {
   @HostListener('click')
   @HostListener('document:keypress', ['$event'])
   onMouseClick() {
-    this.autoLogout.setisActive(true);
+   /*  this.autoLogout.setisActive(true); */
   }
 
   ngOnDestroy(): void {
