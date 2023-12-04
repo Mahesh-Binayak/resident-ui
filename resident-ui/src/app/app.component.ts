@@ -1,15 +1,15 @@
 import { Component, HostListener } from '@angular/core';
 import { AppConfigService } from './app-config.service';
-import { AutoLogoutService } from 'src/app/core/services/auto-logout.service';
+import { AutoLogoutService } from './app/core/services/auto-logout.service';
 import { Subscription } from 'rxjs';
 import { Event as NavigationEvent, Router, NavigationStart } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { LogoutService } from 'src/app/core/services/logout.service';
-import { AuditService } from 'src/app/core/services/audit.service';
-import { DataStorageService } from 'src/app/core/services/data-storage.service';
+import { LogoutService } from './app/core/services/logout.service';
+import { AuditService } from './app/core/services/audit.service';
+import { DataStorageService } from './app/core/services/data-storage.service';
 import { MatKeyboardService } from 'ngx7-material-keyboard';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import defaultJson from "src/assets/i18n/default.json";
+import defaultJson from "./assets/i18n/default.json";
 
 import {
   MomentDateAdapter,
@@ -50,7 +50,7 @@ export class AppComponent {
 
   constructor(
     private appConfigService: AppConfigService,
-    private autoLogout: AutoLogoutService, 
+    private autoLogout: AutoLogoutService,
     private router: Router,
     private logoutService: LogoutService,
     private auditService: AuditService,
@@ -124,7 +124,7 @@ export class AppComponent {
           }
         }
     });
-    
+
     this.appConfigService.getConfig();
     if (this.primaryLangCode === "ara") {
       localStorage.setItem('direction','rtl')
@@ -134,8 +134,8 @@ export class AppComponent {
     this.sitealignment = localStorage.getItem('direction');
     document.body.dir = this.sitealignment;
   }
-  
-  ngOnInit() { 
+
+  ngOnInit() {
     localStorage.setItem("selectedfontsize", "14");
     this.dateAdapter.setLocale(defaultJson.keyboardMapping[this.primaryLangCode]);
     this.router.routeReuseStrategy.shouldReuseRoute = function(){
@@ -147,7 +147,7 @@ export class AppComponent {
         if(response["response"]){
           if (window.location.href.includes('uinservices')) {
           }else{
-            this.router.navigate(['uinservices/dashboard']); 
+            this.router.navigate(['uinservices/dashboard']);
           }
         }else{
           if(window.location.href.includes('error=invalid_transaction')){
@@ -165,7 +165,7 @@ export class AppComponent {
     if(window.location.href.includes('error=invalid_transaction')){
       this.router.navigate(['error']);
     }
-    
+
     if(!localStorage.getItem("langCode")){
       localStorage.setItem("langCode", "eng");
     }
