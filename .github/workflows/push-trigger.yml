@@ -100,7 +100,7 @@ jobs:
       - name: Test and coverage
         run: |
           cd "./${{env.SERVICE_LOCATION}}"
-          npm run test --no-watch --code-coverage
+          npm run test --code-coverage --watch=false
       - name: run sonar analysis
         run: |
           cd "./${{env.SERVICE_LOCATION}}"
