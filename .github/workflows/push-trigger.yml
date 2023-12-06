@@ -97,14 +97,10 @@ jobs:
           echo "GPG_TTY=$(tty)" >> $GITHUB_ENV
           echo "BRANCH_NAME=$(echo ${{ github.ref }} | sed -e 's,.*/\(.*\),\1,')" >> $GITHUB_ENV
 
-      - name: Install dependencies
-        run: yarn
-
       - name: Test and coverage
         run: |
           cd "./${{env.SERVICE_LOCATION}}"
-          npm install --save-dev jest ts-jest typescript@4.3.2
-          yarn test
+          ng test --no-watch --code-coverage
       - name: run sonar analysis
         run: |
           cd "./${{env.SERVICE_LOCATION}}"
