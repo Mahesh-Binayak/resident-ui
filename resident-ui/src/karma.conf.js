@@ -14,6 +14,7 @@ module.exports = function (config) {
       require('karma-phantomjs-launcher'),
       require( 'karma-remap-istanbul' ),
       require('karma-coverage-istanbul-reporter'),
+      require( 'angular-cli/plugins/karma' )
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
@@ -30,6 +31,12 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['PhantomJS'],
+    customLaunchers: {
+      ChromeHeadlessCI: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox']
+      }
+    },
     singleRun: false
   });
 };
