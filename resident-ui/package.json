@@ -8,7 +8,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "sonar": "sonar-scanner",
-    "test": "ng test"
+    "test": "ng test",
+    "test-headless": "ng test --watch=false --code-coverage --source-map=false --browsers=ChromiumNoSandbox"
   },
   "private": true,
   "dependencies": {
